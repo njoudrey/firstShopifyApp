@@ -2,6 +2,7 @@ import { Page } from "@shopify/polaris";
 import { ResourcePicker } from "@shopify/app-bridge-react";
 import store from 'store-js';
 import ShopNameCard from '../components/ShopNameCard';
+import ResourceListWithProducts from "../components/ResourceListWithProducts";
 
 class Index extends React.Component {
 	state = { open: false }
@@ -21,6 +22,7 @@ class Index extends React.Component {
   					onSelection={(resources) => this.handleSelection(resources)}
   				/>
 				<ShopNameCard/>
+				<ResourceListWithProducts/>
   			</Page>
 		)
 	}

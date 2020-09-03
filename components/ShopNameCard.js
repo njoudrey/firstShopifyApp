@@ -2,7 +2,6 @@ import gql from "graphql-tag";
 import { Query } from 'react-apollo';
 import { Card } from '@shopify/polaris';
 
-
 const GET_STORE_NAME = gql`
     query {
         shop {
@@ -18,10 +17,9 @@ class ShopNameCard extends React.Component {
                 {({ data, loading, error }) => {
                     if (loading) return <div>loading...</div>;
                     if (error) return <div>Error! {error.message}</div>;
-                    console.log(data)
                     return (
                         <Card>
-                            <p>Shop name: {data.shop.name}</p>
+                            <p>{data.shop.name}</p>
                         </Card>
                     );
                 }}
