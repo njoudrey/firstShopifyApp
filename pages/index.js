@@ -1,5 +1,7 @@
 import { Page } from "@shopify/polaris";
 import { ResourcePicker } from "@shopify/app-bridge-react";
+import store from 'store-js';
+import ShopNameCard from '../components/ShopNameCard';
 
 class Index extends React.Component {
 	state = { open: false }
@@ -18,13 +20,14 @@ class Index extends React.Component {
   					onCancel={() => this.setState({open: false})}
   					onSelection={(resources) => this.handleSelection(resources)}
   				/>
+				<ShopNameCard/>
   			</Page>
 		)
 	}
 	handleSelection = (resources) => {
 		const idFromResources = resources.selection.map((product) => product.id);
 		this.setState({open: false})
-		console.log(idFromResources);
+		store.set('ids', idFromResources);
 	}
 }
 
